@@ -1,6 +1,5 @@
 body, html {
-  height: 100%;
-  overflow: hidden; }
+  height: 100%; }
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -8,6 +7,12 @@ body {
   margin: 0;
   background: #83a4d4;
   background: radial-gradient(circle at 2.04% 41.02%, #83a4d4, transparent 100%), radial-gradient(circle at 97.96% 58.98%, #b6fbff, transparent 100%), radial-gradient(circle at 50% 50%, #ada48a, #ada48a 100%); }
+
+h1 {
+  font-weight: 400; }
+
+p {
+  font-weight: 300; }
 
 header {
   position: fixed;
@@ -48,7 +53,6 @@ header {
   margin-top: -0.7rem;
   color: #213a5e;
   float: left;
-  font-weight: 400;
   font-size: 2rem; }
   .logo span {
     color: #adadad;
@@ -60,9 +64,7 @@ header {
   margin: 0 auto;
   width: 90%;
   max-width: 1000px;
-  padding-top: 1.5em;
-  /* 	background: rgba(35,64,34, 0.5);
-  */ }
+  padding-top: 1.5em; }
 
 @media all and (max-width: 780px) {
   .logo {
@@ -78,5 +80,91 @@ header {
     text-align: center; }
     .main-nav a {
       font-size: 1rem; } }
+.intro {
+  color: #fff;
+  margin-top: 8rem; }
+
+.recent-work {
+  color: #213a5e;
+  background: white;
+  padding-bottom: 5rem; }
+
+footer {
+  font-size: 0.8rem;
+  font-weight: 300;
+  padding: 0.6rem;
+  text-align: center;
+  color: #fff; }
+
+.section {
+  clear: both;
+  padding: 0px;
+  margin: 0px; }
+
+/*  COLUMN SETUP  */
+.col {
+  display: block;
+  float: left;
+  margin: 1% 0 1% 1.6%; }
+
+.col:first-child {
+  margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after {
+  content: "";
+  display: table; }
+
+.group:after {
+  clear: both; }
+
+.group {
+  zoom: 1;
+  /* For IE 6/7 */ }
+
+/*  GRID OF TWO  */
+.span_2_of_2 {
+  width: 100%; }
+
+.span_1_of_2 {
+  width: 49.2%; }
+
+/*  GRID OF THREE  */
+.span_3_of_3 {
+  width: 100%; }
+
+.span_2_of_3 {
+  width: 66.13%; }
+
+.span_1_of_3 {
+  width: 32.26%; }
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+@media only screen and (max-width: 480px) {
+  .wrap {
+    width: 96%; }
+
+  .col {
+    margin: 1% 0 1% 0%; }
+
+  .span_2_of_2 {
+    width: 100%; }
+
+  .span_1_of_2 {
+    width: 100%; }
+
+  .span_3_of_3 {
+    width: 100%; }
+
+  .span_2_of_3 {
+    width: 100%; }
+
+  .span_1_of_3 {
+    width: 100%; } }
+.placeholder {
+  max-width: 100%;
+  height: 300px;
+  background: lightgray; }
 
 /*# sourceMappingURL=app.css.map */
