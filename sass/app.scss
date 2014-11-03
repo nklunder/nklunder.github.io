@@ -1,7 +1,100 @@
-body, html { height:100%; overflow:hidden; }
+body, html {
+	height: 100%;
+	overflow: hidden;
+}
 
 body {
-	background-image:radial-gradient(circle at 2.04% 41.02%, #83a4d4, transparent 100%),
-		radial-gradient(circle at 97.96% 58.98%, #b6fbff, transparent 100%),
-		radial-gradient(circle at 50% 50%, #ada48a, #ada48a 100%);
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 18px;
+	margin: 0;
+	background: #83a4d4;
+	background: radial-gradient(circle at 2.04% 41.02%, #83a4d4, transparent 100%),
+	radial-gradient(circle at 97.96% 58.98%, #b6fbff, transparent 100%),
+	radial-gradient(circle at 50% 50%, #ada48a, #ada48a 100%);
 }
+
+header {
+	position: fixed;
+	background: #fff;
+	background: rgba(255,255,255,0.9);
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 99;
+	&:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -2px;
+		right: 0;
+		border-bottom: 2px solid rgba(0,0,0,0.1);
+	}
+	a {
+		font-size: 1.15rem;
+		font-weight: 400;
+		color: rgb(33,58,94);
+		text-decoration: none;
+		margin-left: 1rem;
+		&:hover {
+			color: #83a4d4;
+		}
+	}
+}
+
+.main-nav {
+	float: right;
+	margin-bottom: 0.6rem;
+	a {
+		font-weight: 400;
+		color: rgb(33,58,94);
+		text-decoration: none;
+		margin-left: 1rem;
+		&:hover {
+			color: #83a4d4;
+		}
+	}
+}
+
+.logo {
+	margin-top: -0.7rem;
+	color: rgb(33,58,94);
+	float: left;
+	font-weight: 400;
+	font-size: 2rem;
+	span {
+		color: rgb(173,173,173);
+		font-weight: 300;
+		text-transform: uppercase;
+		font-size: 1.4rem;
+	}
+}
+
+.wrap {
+	margin: 0 auto;
+	width: 90%;
+	max-width: 1000px;
+	padding-top: 1.5em;
+
+	/* 	background: rgba(35,64,34, 0.5);
+	*/}
+
+	@media all and (max-width: 780px) {
+		.logo {
+			float: none;
+			margin-bottom: 1rem;
+			text-align: center;
+			span {
+				font-size: 1.1rem;
+				display: block;
+			}
+		}
+		.main-nav {
+			float: none;
+			text-align: center;
+			a {
+				font-size: 1rem;
+			}
+		}
+		.wrap {
+		}
+	}
