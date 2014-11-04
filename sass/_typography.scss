@@ -1,0 +1,16 @@
+h1, h2 {
+  font-weight: 400;
+}
+
+p {
+  font-weight: 300;
+  margin: 0;
+}
+
+a {
+  color: darken($polo-blue, 40%);
+  text-decoration: none;
+  &:hover {
+    color: $polo-blue;
+  }
+}

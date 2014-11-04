@@ -1,0 +1,40 @@
+.site-header {
+  position: fixed;
+  background: $white;
+  background: rgba($white, 0.9);
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 99;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    right: 0;
+    border-bottom: 2px solid rgba($black, 0.1);
+  }
+}
+
+.logo {
+  margin-top: -0.7rem;
+  color: darken($polo-blue, 40%);
+  float: left;
+  font-size: 2rem;
+  span {
+    color: lighten($black, 66%);
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+  }
+}
+
+.main-nav {
+  float: right;
+  margin-bottom: 0.6rem;
+  a {
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin-left: 1rem;
+  }
+}

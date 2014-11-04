@@ -1,0 +1,49 @@
+// header media queries
+@media all and (max-width: 780px) {
+  .logo {
+    float: none;
+    margin-bottom: 1rem;
+    text-align: center;
+    span {
+      font-size: 1.1rem;
+      display: block;
+    }
+  }
+  .main-nav {
+    float: none;
+    text-align: center;
+    a {
+      font-size: 1rem;
+    }
+  }
+}
+
+// grid system media queries
+@media only screen and (max-width: 480px) {
+  .wrap {
+    width: 96%;
+  }
+  .col {
+    margin: 1% 0 1% 0%;
+  }
+  .span_2_of_2 {
+    width: 100%;
+  }
+  .span_1_of_2 {
+    width: 100%;
+  }
+  .span_3_of_3 {
+    width: 100%;
+  }
+  .span_2_of_3 {
+    width: 100%;
+  }
+  .span_1_of_3 {
+    width: 100%;
+  }
+}
+
+.project-header {
+  margin: 0;
+  padding: 1rem;
+}
