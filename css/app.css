@@ -165,7 +165,9 @@ body {
   font-size: 18px;
   margin: 0;
   background: #83a4d4;
-  background: radial-gradient(circle at 2.04% 41.02%, #83a4d4, transparent 100%), radial-gradient(circle at 97.96% 58.98%, #b6fbff, transparent 100%), #ada48a; }
+  background: radial-gradient(circle at 2.04% 41.02%, #83a4d4, transparent 100%), radial-gradient(circle at 97.96% 58.98%, #b6fbff, transparent 100%), radial-gradient(circle at 50% 50%, #ada48a, #ada48a 100%);
+  /* 	\$hillary;
+   */ }
 
 img {
   max-width: 100%;
