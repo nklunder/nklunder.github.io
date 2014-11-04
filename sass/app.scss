@@ -1,12 +1,11 @@
 @import 'config';
 @import 'typography';
 @import 'components/manifest';
-@import 'responsive';
 @import 'grid';
-
+@import 'responsive';
 
 body, html {
-	height: 100%;
+	min-height: 100%;
 }
 
 body {
@@ -16,8 +15,7 @@ body {
 	background: $polo-blue;
 	background: radial-gradient(circle at 2.04% 41.02%, $polo-blue, transparent 100%),
 	radial-gradient(circle at 97.96% 58.98%, $french-pass, transparent 100%),
-/* 	radial-gradient(circle at 50% 50%, \$hillary, \$hillary 100%);
- */	$hillary;
+	$hillary;
 }
 
 img {
