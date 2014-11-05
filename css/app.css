@@ -56,7 +56,7 @@ a {
     font-size: 1.4rem; }
 
 .recent-work {
-  color: #213a5e;
+  color: #243f67;
   background: #fff;
   padding-bottom: 5rem; }
   .recent-work h2 {
@@ -64,11 +64,17 @@ a {
     padding: 1rem; }
   .recent-work p {
     margin: 0;
-    padding: 0 1rem 1rem; }
+    padding: 0 1rem 0.5rem; }
+  .recent-work a:hover {
+    background-color: pink;
+    color: #243f67; }
 
 .project-tech-list {
   font-size: 0.9rem;
-  color: #00c4d0; }
+  color: gray; }
+
+.project-link:hover {
+  background-color: #e6e6e6; }
 
 footer {
   text-shadow: 1px 1px rgba(0, 0, 0, 0.1);

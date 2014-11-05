@@ -1,5 +1,5 @@
 .recent-work {
-  color: rgb(33,58,94);
+  color: darken($polo-blue, 40%);
   background: $white;
   padding-bottom: 5rem;
   h2 {
@@ -8,11 +8,19 @@
   }
   p {
     margin: 0;
-    padding: 0 1rem 1rem;
+    padding: 0 1rem 0.5rem;
+  }
+  a:hover {
+    background-color: pink;
+    color: darken($polo-blue, 40%);
   }
 }
 
 .project-tech-list {
   font-size: 0.9rem;
-  color: darken($french-pass, 45%);
+  color: lighten($black, 50%);
+}
+
+.project-link:hover {
+  background-color: lighten($black, 90%);
 }
