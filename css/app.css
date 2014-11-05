@@ -66,6 +66,10 @@ a {
     margin: 0;
     padding: 0 1rem 1rem; }
 
+.project-tech-list {
+  font-size: 0.9rem;
+  color: #00c4d0; }
+
 footer {
   text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
   font-size: 0.8rem;
@@ -153,10 +157,6 @@ footer {
 
   .span_1_of_3 {
     width: 100%; } }
-.project-header {
-  margin: 0;
-  padding: 1rem; }
-
 body, html {
   min-height: 100%; }
 
@@ -165,9 +165,7 @@ body {
   font-size: 18px;
   margin: 0;
   background: #83a4d4;
-  background: radial-gradient(circle at 2.04% 41.02%, #83a4d4, transparent 100%), radial-gradient(circle at 97.96% 58.98%, #b6fbff, transparent 100%), radial-gradient(circle at 50% 50%, #ada48a, #ada48a 100%);
-  /* 	\$hillary;
-   */ }
+  background: radial-gradient(circle at 2.04% 41.02%, #83a4d4, transparent 100%), radial-gradient(circle at 97.96% 58.98%, #b6fbff, transparent 100%), #ada48a; }
 
 img {
   max-width: 100%;
