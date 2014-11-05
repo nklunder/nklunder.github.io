@@ -135,7 +135,9 @@ footer {
     float: none;
     text-align: center; }
     .main-nav a {
-      font-size: 1rem; } }
+      font-size: 1rem;
+      margin-left: 0;
+      padding: 2.5%; } }
 @media only screen and (max-width: 480px) {
   .wrap {
     width: 96%; }
