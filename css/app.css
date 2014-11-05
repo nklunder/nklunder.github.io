@@ -7,7 +7,8 @@ p {
 
 a {
   color: #243f67;
-  text-decoration: none; }
+  text-decoration: none;
+  transition: color 0.15s ease; }
   a:hover {
     color: #83a4d4; }
 
@@ -66,12 +67,14 @@ a {
     margin: 0;
     padding: 0 1rem 0.5rem; }
   .recent-work a:hover {
-    background-color: pink;
     color: #243f67; }
 
 .project-tech-list {
   font-size: 0.9rem;
   color: gray; }
+
+.project-link {
+  transition: background-color 0.3s ease; }
 
 .project-link:hover {
   background-color: #e6e6e6; }

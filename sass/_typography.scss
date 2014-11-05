@@ -10,6 +10,7 @@ p {
 a {
   color: darken($polo-blue, 40%);
   text-decoration: none;
+  transition: color 0.15s ease;
   &:hover {
     color: $polo-blue;
   }

@@ -11,7 +11,6 @@
     padding: 0 1rem 0.5rem;
   }
   a:hover {
-    background-color: pink;
     color: darken($polo-blue, 40%);
   }
 }
@@ -19,6 +18,10 @@
 .project-tech-list {
   font-size: 0.9rem;
   color: lighten($black, 50%);
+}
+
+.project-link {
+  transition: background-color 0.3s ease;
 }
 
 .project-link:hover {
