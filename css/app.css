@@ -10,7 +10,7 @@ a {
   text-decoration: none;
   transition: color 0.15s ease; }
   a:hover {
-    color: #83a4d4; }
+    color: #6bb4bf; }
 
 .site-header {
   position: fixed;
@@ -55,18 +55,22 @@ a {
     font-size: 2.2rem; }
   .intro p {
     font-size: 1.4rem; }
+  .intro a {
+    transition: color 0.2s ease; }
+  .intro a:hover {
+    color: #b2d8de; }
 
-.recent-work {
+.recent-work, .project-details {
   color: #243f67;
   background: #fff;
   padding-bottom: 5rem; }
-  .recent-work h2 {
+  .recent-work h2, .project-details h2 {
     margin: 0;
     padding: 1rem; }
-  .recent-work p {
+  .recent-work p, .project-details p {
     margin: 0;
     padding: 0 1rem 0.5rem; }
-  .recent-work a:hover {
+  .recent-work a:hover, .project-details a:hover {
     color: #243f67; }
 
 .project-tech-list {
@@ -78,6 +82,10 @@ a {
 
 .project-link:hover {
   background-color: #e6e6e6; }
+
+.github-link {
+  margin-top: 1em;
+  font-weight: 400; }
 
 footer {
   text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
@@ -177,7 +185,7 @@ body {
   font-size: 18px;
   margin: 0;
   background: #83a4d4;
-  background: radial-gradient(circle at 2.04% 41.02%, #83a4d4, transparent 100%), radial-gradient(circle at 97.96% 58.98%, #b6fbff, transparent 100%), #ada48a; }
+  background: radial-gradient(circle at 2.04% 41.02%, #83a4d4, transparent 100%), radial-gradient(circle at 97.96% 58.98%, #b6fbff, transparent 100%), radial-gradient(circle at 50% 50%, #4aa0ad, #4aa0ad 100%); }
 
 img {
   max-width: 100%;

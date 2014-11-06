@@ -12,6 +12,6 @@ a {
   text-decoration: none;
   transition: color 0.15s ease;
   &:hover {
-    color: $polo-blue;
+    color: lighten($hippie-blue, 10%);
   }
 }

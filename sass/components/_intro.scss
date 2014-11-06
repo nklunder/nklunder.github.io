@@ -8,4 +8,10 @@
   p {
     font-size: 1.4rem;
   }
+  a {
+    transition: color 0.2s ease;
+  }
+  a:hover {
+    color: lighten($hippie-blue, 30%)
+  }
 }

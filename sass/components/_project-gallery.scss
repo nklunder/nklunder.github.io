@@ -1,4 +1,4 @@
-.recent-work {
+.recent-work, .project-details {
   color: darken($polo-blue, 40%);
   background: $white;
   padding-bottom: 5rem;
@@ -26,4 +26,9 @@
 
 .project-link:hover {
   background-color: lighten($black, 90%);
+}
+
+.github-link {
+  margin-top: 1em;
+  font-weight: 400;
 }
