@@ -12,6 +12,10 @@ a {
   a:hover {
     color: #6bb4bf; }
 
+.subtle-link > a {
+  font-weight: 400;
+  color: white; }
+
 .site-header {
   position: fixed;
   background: #fff;

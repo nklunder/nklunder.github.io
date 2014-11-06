@@ -15,3 +15,8 @@ a {
     color: lighten($hippie-blue, 10%);
   }
 }
+
+.subtle-link > a {
+  font-weight: 400;
+  color: white;
+}
