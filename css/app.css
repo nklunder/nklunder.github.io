@@ -91,6 +91,12 @@ a {
   margin-top: 1em;
   font-weight: 400; }
 
+.project-links {
+  text-align: center;
+  margin-top: 3rem; }
+  .project-links a {
+    margin: 1rem; }
+
 footer {
   text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
   font-size: 0.8rem;
