@@ -96,6 +96,8 @@ a {
   margin-top: 3rem; }
   .project-links a {
     margin: 1rem; }
+    .project-links a:hover {
+      color: #6bb4bf; }
 
 footer {
   text-shadow: 1px 1px rgba(0, 0, 0, 0.1);

@@ -3,5 +3,8 @@
   margin-top: 3rem;
   a {
     margin: 1rem;
+    &:hover {
+      color: lighten($hippie-blue, 10%);
+    }
   }
 }
