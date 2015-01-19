@@ -9,6 +9,7 @@
   "author": "Nick Klunder",
   "homepage": "https://github.com/nklunder/nklunder.github.io",
   "devDependencies": {
+    "browser-sync": "^1.9.0",
     "gulp": "^3.8.10",
     "gulp-autoprefixer": "^2.1.0",
     "gulp-concat": "^2.4.3",
