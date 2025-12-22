@@ -1,20 +1,14 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
-  "description": "dev portfolio site",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nklunder/nklunder.github.io.git"
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "author": "Nick Klunder",
-  "homepage": "https://github.com/nklunder/nklunder.github.io",
-  "devDependencies": {
-    "browser-sync": "^1.9.0",
-    "gulp": "^3.8.10",
-    "gulp-autoprefixer": "^2.1.0",
-    "gulp-concat": "^2.4.3",
-    "gulp-rename": "^1.2.0",
-    "gulp-sass": "^1.3.2",
-    "gulp-uglify": "^1.1.0"
+  "dependencies": {
+    "astro": "^5.16.6"
   }
 }
