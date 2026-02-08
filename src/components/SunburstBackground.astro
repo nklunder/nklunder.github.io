@@ -1,0 +1,135 @@
+---
+// src/components/SunburstBackground.astro
+---
+
+<style>
+    /* Animated gradient color cycling */
+    @keyframes gradientCycle1 {
+        0%,
+        100% {
+            stop-color: #ff69b4;
+        }
+        33% {
+            stop-color: #00bfff;
+        }
+        66% {
+            stop-color: #ffd700;
+        }
+    }
+
+    @keyframes gradientCycle2 {
+        0%,
+        100% {
+            stop-color: #00bfff;
+        }
+        33% {
+            stop-color: #ffd700;
+        }
+        66% {
+            stop-color: #ff69b4;
+        }
+    }
+
+    @keyframes gradientCycle3 {
+        0%,
+        100% {
+            stop-color: #ffd700;
+        }
+        33% {
+            stop-color: #ff69b4;
+        }
+        66% {
+            stop-color: #00bfff;
+        }
+    }
+
+    .anim-stop-1 {
+        animation: gradientCycle1 6s linear infinite;
+    }
+    .anim-stop-2 {
+        animation: gradientCycle2 6s linear infinite;
+    }
+    .anim-stop-3 {
+        animation: gradientCycle3 6s linear infinite;
+    }
+</style>
+
+<svg
+    id="sunburst"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1200 800"
+    width="100%"
+    height="100%"
+>
+    <defs>
+        <linearGradient id="staticGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#00BFFF"></stop>
+            <stop offset="100%" stop-color="#32CD32"></stop>
+        </linearGradient>
+
+        <linearGradient id="animGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" class="anim-stop-1"></stop>
+            <stop offset="50%" class="anim-stop-2"></stop>
+            <stop offset="100%" class="anim-stop-3"></stop>
+        </linearGradient>
+    </defs>
+
+    <g id="rays" transform-origin="600 400">
+        <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="0 600 400"
+            to="360 600 400"
+            dur="60s"
+            repeatCount="indefinite"></animateTransform>
+    </g>
+
+    <path
+        d="M 0,600 Q 300,550 600,600 T 1200,600 L 1200,800 L 0,800 Z"
+        fill="#6B46C1"
+        stroke="#000"
+        stroke-width="3"></path>
+</svg>
+
+<script>
+    const SVG_NS = "http://www.w3.org/2000/svg";
+    const raysGroup = document.getElementById("rays");
+    const centerX = 600;
+    const centerY = 400;
+    const numRays = 24;
+
+    if (!raysGroup) throw new Error("rays group element not found");
+
+    for (let i = 0; i < numRays; i++) {
+        const angle = i * 15;
+        const isAnimated = i % 2 === 0;
+        const fillId = isAnimated ? "animGrad" : "staticGrad";
+
+        // Create path element
+        const path = document.createElementNS(SVG_NS, "path");
+        path.setAttribute("d", "M 600,400 L 580,0 Q 600,-20 620,0 L 640,400 Z");
+        path.setAttribute("fill", `url(#${fillId})`);
+        path.setAttribute("stroke", "#000");
+        path.setAttribute("stroke-width", "2");
+        path.setAttribute(
+            "transform",
+            `rotate(${angle} ${centerX} ${centerY})`
+        );
+
+        // Add undulation animation
+        const animate = document.createElementNS(SVG_NS, "animate");
+        animate.setAttribute("attributeName", "d");
+        animate.setAttribute(
+            "values",
+            "M 600,400 L 580,0 Q 600,-20 620,0 L 640,400 Z;" +
+                "M 600,400 L 575,0 Q 600,-25 625,0 L 650,400 Z;" +
+                "M 600,400 L 580,0 Q 600,-20 620,0 L 640,400 Z"
+        );
+        animate.setAttribute("dur", "8s");
+        animate.setAttribute("begin", `${i * 0.33}s`);
+        animate.setAttribute("repeatCount", "indefinite");
+
+        path.appendChild(animate);
+        raysGroup.appendChild(path);
+    }
+</script>

@@ -1,0 +1,34 @@
+---
+// src/components/NickerdoodleText.astro
+---
+
+<style>
+    svg {
+        display: block;
+    }
+    .alt-n {
+        font-feature-settings: "aalt";
+    }
+
+    .alt-d {
+        font-feature-settings: "ss07";
+    }
+
+    .alt-e {
+        font-feature-settings: "ss02";
+    }
+</style>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 230">
+    <defs>
+        <path id="textArc" d="M 50,190 Q 400,110 750,190"> </path>
+    </defs>
+
+    <text font-family="Ayr Lovadelic" font-size="240">
+        <textPath href="#textArc" startOffset="50%" text-anchor="middle">
+            <tspan class="alt-n">N</tspan><tspan>icker</tspan><tspan
+                class="alt-d">d</tspan
+            ><tspan>oodl</tspan><tspan class="alt-e">e</tspan>
+        </textPath>
+    </text>
+</svg>

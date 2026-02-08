@@ -1,0 +1,211 @@
+---
+// src/components/Sunrise.astro
+---
+
+<style>
+    .sunrise-container {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        overflow: hidden;
+    }
+
+    svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* --- Animations --- */
+
+    /* 1. Rotate the entire ray group clockwise endlessly */
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .rays-group {
+        transform-origin: 50% 80%; /* Center of rotation at the "horizon" center */
+        animation: spin 240s linear infinite;
+        will-change: transform;
+    }
+
+    /* 2. Gradient Cycling for the Animated Rays - CSS Opacity Approach */
+    @keyframes fadeCycle {
+        0%, 100% { opacity: 1; }
+        33% { opacity: 0; }
+        66% { opacity: 0; }
+    }
+
+    .layer-1 { animation: fadeCycle 12s linear infinite; }
+    .layer-2 { animation: fadeCycle 12s linear infinite -4s; }
+    .layer-3 { animation: fadeCycle 12s linear infinite -8s; }
+
+    /* Hills styling */
+    .hill-1 {
+        fill: #48d1cc;
+        stroke: #000;
+        stroke-width: 3px;
+    } /* Medium Turquoise */
+    .hill-2 {
+        fill: #ba55d3;
+        stroke: #000;
+        stroke-width: 3px;
+    } /* Medium Orchid */
+    .hill-3 {
+        fill: #32cd32;
+        stroke: #000;
+        stroke-width: 3px;
+    } /* Lime Green */
+
+    /* Sun Styling */
+    .sun-core {
+        fill: #ffd700;
+        stroke: #000;
+        stroke-width: 3px;
+    }
+</style>
+
+<div class="sunrise-container">
+    <svg
+        viewBox="0 0 800 500"
+        preserveAspectRatio="xMidYMax slice"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <defs>
+            <!-- Optimization: 3 Static Gradients instead of one animated stop-color -->
+            <!-- 1. Pink Primary -->
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ff69b4" />
+                <stop offset="100%" stop-color="#00bfff" />
+            </linearGradient>
+
+            <!-- 2. Cyan Primary -->
+            <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#00bfff" />
+                <stop offset="100%" stop-color="#ffd700" />
+            </linearGradient>
+
+            <!-- 3. Yellow Primary -->
+            <linearGradient id="grad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffd700" />
+                <stop offset="100%" stop-color="#ff69b4" />
+            </linearGradient>
+
+            <!-- Static Gradient (Orange to Purple) -->
+            <linearGradient
+                id="rayGradientStatic"
+                x1="0%"
+                y1="0%"
+                x2="0%"
+                y2="100%"
+            >
+                <stop offset="0%" stop-color="#FF4500"></stop>
+                <!-- OrangeRed -->
+                <stop offset="100%" stop-color="#8A2BE2"></stop>
+                <!-- BlueViolet -->
+            </linearGradient>
+
+            <!-- Ray Shape (One wedge) -->
+            <!-- Extended ray length to 2000 to ensure coverage at corners -->
+            <!-- Widened to +/- 300 from center (100 to 700) to ensure >15 degree coverage -->
+            <path id="rayWedge" d="M 400,400 L 100,-1600 L 700,-1600 Z"></path>
+        </defs>
+
+        <!-- Use a rect to clip the bottom if needed, or just let hills cover it. -->
+
+        <!-- RAYS LAYER -->
+        <!-- Center of rotation is 400, 400 (The "Horizon" line is at y=400) -->
+        <g class="rays-group">
+            {
+                Array.from({ length: 24 }).map((_, i) => {
+                    const isAnim = i % 2 === 0;
+                    const rotation = `rotate(${i * 15} 400 400)`;
+                    
+                    if (!isAnim) {
+                         // Static Ray
+                         return (
+                            <path
+                                d="M 400,400 L 100,-1600 L 700,-1600 Z"
+                                fill="url(#rayGradientStatic)"
+                                stroke="#000"
+                                stroke-width="2"
+                                transform={rotation}
+                            />
+                         );
+                    } else {
+                        // Animated Ray (Optimization: 3 overlapping paths with fading opacity)
+                        return (
+                            <g transform={rotation}>
+                                <!-- Layer 1 -->
+                                <path
+                                    d="M 400,400 L 100,-1600 L 700,-1600 Z"
+                                    fill="url(#grad1)"
+                                    class="layer-1"
+                                    stroke="#000"
+                                    stroke-width="2"
+                                />
+                                <!-- Layer 2 -->
+                                <path
+                                    d="M 400,400 L 100,-1600 L 700,-1600 Z"
+                                    fill="url(#grad2)"
+                                    class="layer-2"
+                                    stroke="#000"
+                                    stroke-width="2"
+                                />
+                                <!-- Layer 3 -->
+                                <path
+                                    d="M 400,400 L 100,-1600 L 700,-1600 Z"
+                                    fill="url(#grad3)"
+                                    class="layer-3"
+                                    stroke="#000"
+                                    stroke-width="2"
+                                />
+                            </g>
+                        );
+                    }
+                })
+            }
+        </g>
+
+        <!-- SUN LAYER -->
+        <circle cx="400" cy="400" r="80" class="sun-core"></circle>
+        <circle
+            cx="400"
+            cy="400"
+            r="60"
+            fill="none"
+            stroke="#000"
+            stroke-width="2"
+            opacity="0.3"></circle>
+        <circle
+            cx="400"
+            cy="400"
+            r="40"
+            fill="none"
+            stroke="#000"
+            stroke-width="2"
+            opacity="0.3"></circle>
+
+        <!-- HILLS LAYER (Foreground) -->
+        <!-- Hill 1 (Back Left) -->
+        <path
+            d="M -50,500 L -50,350 Q 150,250 350,400 T 850,500 Z"
+            class="hill-1"></path>
+
+        <!-- Hill 2 (Back Right) -->
+        <path d="M 850,500 L 850,300 Q 600,250 400,420 T 0,500 Z" class="hill-2"
+        ></path>
+
+        <!-- Hill 3 (Front Center) -->
+        <path
+            d="M -50,500 L -50,500 Q 200,450 400,450 T 850,500 Z"
+            class="hill-3"></path>
+    </svg>
+</div>
